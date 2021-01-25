@@ -18,9 +18,7 @@ policy = 'color,translation'
 import lpips
 percept = lpips.PerceptualLoss(model='net-lin', net='vgg', use_gpu=True if torch.cuda.is_available() else False)
 
-
 #torch.backends.cudnn.benchmark = True
-
 
 def crop_image_by_part(image, part):
     hw = image.shape[2]//2
@@ -52,7 +50,6 @@ def train_d(net, data, label="real"):
         
 
 def train(args):
-
     data_root = args.path
     total_iterations = args.iter
     checkpoint = args.ckpt
